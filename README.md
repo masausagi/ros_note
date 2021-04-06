@@ -29,7 +29,7 @@ sudo bash -c "echo -e 'blacklist nouveau\\noptions nouveau modset=0' > /etc/modp
 sudo update-initramfs -u
 
 #--- nvidiaドライバーの最新版を入手
-sudo add-apt-repository ppa:graphics-drivers/ppa
+sudo add-apt-repository -y ppa:graphics-drivers/ppa
 sudo apt update
 
 #--- nvidia-driverのインストール
@@ -37,7 +37,7 @@ sudo ubuntu-drivers autoinstall
 
 #--- dockerをインストール
 sudo apt-get update
-sudo apt-get install \
+sudo apt-get install -y \
     apt-transport-https \
     ca-certificates \
     curl \
@@ -48,7 +48,7 @@ echo \
   "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get update
-sudo apt-get install docker-ce docker-ce-cli containerd.io
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 
 #--- nvidia container toolkitsのインストール
 distribution=$(. /etc/os-release;echo $ID$VERSION_ID) \
