@@ -59,11 +59,19 @@ sudo apt-get install -y nvidia-docker2
 sudo systemctl restart docker
 
 #--- 終了
-echo "done!"
+echo "正常に完了しました！"
+
+echo -n "再起動してもよろしいですか？ [Y/n]: "
+read ANS
+case $ANS in
+  "" | [Yy]* )
+    # ここに「Yes」の時の処理を書く
+    sudo reboot
+    ;;
+  * )
+    # ここに「No」の時の処理を書く
+    echo ""
+    ;;
+esac
 
 ```
-
-
-
-
-
